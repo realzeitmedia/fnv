@@ -67,3 +67,21 @@ func TestByte(t *testing.T) {
 		}
 	}
 }
+
+func TestBytes(t *testing.T) {
+	for _, src := range [][]byte{
+		[]byte(""),
+		[]byte("hello world"),
+	} {
+		h := theirlib.New64a()
+		h.Write(src)
+		theirs := h.Sum64()
+
+		ours := ourlib.New()
+		ours = ourlib.AddBytes(ours, src)
+
+		if have, want := ours, theirs; have != want {
+			t.Errorf("have %d, want %d. case %q", have, want, src)
+		}
+	}
+}
