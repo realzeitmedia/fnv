@@ -26,3 +26,11 @@ func AddByte(h uint64, b byte) uint64 {
 	h *= prime64
 	return h
 }
+
+// AddBytes adds a byteslice to a fnv64a hash value, returning the updated hash.
+func AddBytes(h uint64, bs []byte) uint64 {
+	for _, b := range bs {
+		h = AddByte(h, b)
+	}
+	return h
+}
