@@ -1,6 +1,7 @@
 Simple Go FNV64a hash
 
-This avoids allocations compared to hash/fnv from the standard library.
+This avoids allocations compared to hash/fnv from the standard library
+when hashing strings.
 
 ```
 $ go test -bench=. -benchmem
