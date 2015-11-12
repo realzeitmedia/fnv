@@ -15,8 +15,7 @@ func New() uint64 {
 // Add adds a string to a fnv64a hash value, returning the updated hash.
 func Add(h uint64, s string) uint64 {
 	for i := 0; i < len(s); i++ {
-		h ^= uint64(s[i])
-		h *= prime64
+		h = AddByte(h, s[i])
 	}
 	return h
 }
