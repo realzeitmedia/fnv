@@ -1,7 +1,8 @@
 Simple Go FNV64a hash
 
-This avoids allocations compared to hash/fnv from the standard library
-when hashing strings.
+This avoids allocations compared to hash/fnv from the standard library:
+No []byte allocation when hashing strings, and no allocation of the
+hash interface.
 
 ```
 $ go test -bench=. -benchmem
@@ -16,4 +17,3 @@ See example_test.go for usage.
 Installation:
 
     `go get github.com/realzeitmedia/fnv`
-
